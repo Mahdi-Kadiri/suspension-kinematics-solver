@@ -216,3 +216,7 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Team data — not for publication
+tbre25_geometry_LOCAL.py
+outputs/tbre25_*
