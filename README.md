@@ -1,6 +1,3 @@
-# suspension-kinematics-solver
-4-corner double wishbone suspension kinematics solver in Python. Rigid-body constraint formulation, nine kinematic outputs, slope-based hardpoint sensitivity mapping. Cross-validated against multibody simulation and independent solvers.
-
 # Suspension Kinematics Solver
 
 A four-corner double wishbone suspension kinematics solver written in Python, validated
@@ -9,7 +6,7 @@ against a commercial multibody simulation and two independent kinematics tools.
 Given twelve hardpoints per corner, it sweeps wheel travel and returns nine kinematic
 outputs, plus a slope-based sensitivity map showing which hardpoints control which curve.
 
-![Suspension sweep](docs/suspension_sweep.gif)
+![Suspension sweep](suspension_sweep.gif)
 
 *Front-view kinematics through ±30 mm of travel. The dashed line runs from the contact
 patch through the instant centre; the green marker is the roll centre, tracing its
@@ -46,7 +43,7 @@ that when it disagrees with something, you can find out why.
 | Scrub | lateral contact patch migration with travel |
 | Wheel centre trajectory | front-view path, droop to bump |
 
-![Kinematic curves](docs/curves.png)
+![Kinematic curves](curves.png)
 
 ---
 
@@ -86,7 +83,7 @@ analysis perturbs each coordinate by ±1 mm and reports the change in **curve sl
 design ride height — camber gain, roll centre gradient, bump steer gradient — rather than
 the change in the static value.
 
-![Sensitivity heatmap](docs/heatmap.png)
+![Sensitivity heatmap](heatmap.png)
 
 The practical use is decoupling. If camber gain needs changing without disturbing the
 roll centre, the map identifies which coordinate has leverage on one and not the other.
@@ -105,12 +102,12 @@ Dynamic Simulation: two revolution joints at the wishbone pivots, four spherical
 at the ball joints and tie rod ends, driven through the equivalent of ±28 mm of wheel
 travel.
 
-![Inventor mechanism](docs/inventor_sim.gif)
+![Inventor mechanism](inventor_sim.gif)
 
 This is a genuinely different class of solver — numerical constraint satisfaction rather
 than closed-form geometry — so agreement tests the result rather than the implementation.
 
-![Validation](docs/validation_inventor.png)
+![Validation](validation_inventor.png)
 
 Inventor reports spherical joint positions as Euler angles, not coordinates, so the ball
 joint positions were reconstructed from the two revolution joint angles by rotating each
@@ -133,8 +130,8 @@ Agreement holds across the whole travel range, not only at the design point.
 
 The same hardpoints were entered into RD KineSolver, a third-party analytical tool.
 
-![KineSolver](docs/kinesolver_render.gif)
-![KineSolver plots](docs/kinesolver_plots.png)
+![KineSolver](kinesolver_render.gif)
+![KineSolver plots](kinesolver_plots.png)
 
 *Renders and plots © [Racetrack Dynamics](https://racetrackdynamics.com/kinesolver/),
 produced from this project's hardpoint set.*
@@ -255,4 +252,3 @@ hardpoint set that is not published here.
 ## Licence
 
 MIT
-
